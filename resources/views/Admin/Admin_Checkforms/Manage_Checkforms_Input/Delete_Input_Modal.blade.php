@@ -6,7 +6,7 @@
           <div class="modal-dialog modal-lg">
               <div class="modal-content">
                   <div class="modal-header">
-                      <h5 class="modal-title" id="updateInputModalLabel">Update {{ $checkform->checkform_name }} Input
+                      <h5 class="modal-title" id="updateInputModalLabel">Delete {{ $checkform->checkform_name }} Input
                       </h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
@@ -30,7 +30,7 @@
                                               name="up_input_value_{{ $j }}_{{ $delspace_checkform_name }}"
                                               id="up_input_value_{{ $j }}_{{ $delspace_checkform_name }}"
                                               placeholder="Input" value="{{ $fill_input->input_title }}">
-                                          <div class="wrapper">
+                                          {{-- <div class="wrapper">
                                               <input type="radio" name="Radio-{{ $j }}"
                                                   id="up_type-1-{{ $j }}-{{ $delspace_checkform_name }}"
                                                   data-id="up_type-1-{{ $j }}-{{ $delspace_checkform_name }}"
@@ -57,7 +57,7 @@
                                                   <span>Select</span>
                                               </label>
 
-                                          </div>
+                                          </div> --}}
 
                                           <input type="hidden"
                                               name="up_fill_list_id_{{ $j }}_{{ $delspace_checkform_name }}"
@@ -72,14 +72,14 @@
                                           <div class="option_input"
                                               id="up_option_{{ $j }}_{{ $delspace_checkform_name }}">
                                               @if ($fill_input->input_type == 'select')
-                                                  <div class="add_remove_option_button"
+                                                  {{-- <div class="add_remove_option_button"
                                                       id="up_button_{{ $key_input }}">
                                                       <a class="btn btn-primary up_add_option text-light my-1 ml-4"
                                                           data-checkform_name="{{ $delspace_checkform_name }}"
                                                           data-key="{{ $key }}">
                                                           <span class="fa fa-plus"> <span>Add Option</span></span>
                                                       </a>
-                                                  </div>
+                                                  </div> --}}
                                                   @php
                                                       $i = 0;
                                                   @endphp

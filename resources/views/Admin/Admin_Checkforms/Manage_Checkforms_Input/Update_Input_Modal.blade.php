@@ -74,7 +74,7 @@
                                               @if ($fill_input->input_type == 'select')
                                                   <div class="add_remove_option_button"
                                                       id="up_button_{{ $key_input }}">
-                                                      <a class="btn btn-primary up_add_option text-light my-1 ml-4"
+                                                      <a class="btn btn-primary up_add_option text-light my-1"
                                                           data-checkform_name="{{ $delspace_checkform_name }}"
                                                           data-key="{{ $key }}">
                                                           <span class="fa fa-plus"> <span>Add Option</span></span>

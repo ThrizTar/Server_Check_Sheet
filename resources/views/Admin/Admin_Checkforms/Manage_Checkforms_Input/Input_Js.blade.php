@@ -442,6 +442,7 @@
             console.log("join_input_options: " + join_input_options);
             console.log("join_options: " + join_options);
             console.log("join_input_options: " + join_input_options);
+            console.log("join_types: " + join_types);
 
             $.ajax({
                 method: "POST",
@@ -461,7 +462,7 @@
 
                         $('#addInputModal-' + key).modal('hide');
                         $('#addInputFormcheckForm')[0].reset();
-                        location.reload(true);
+                        // location.reload(true);
 
                         Command: toastr["success"](
                             "Your input title have been created successfully",
@@ -933,13 +934,13 @@
                 '<div class="sub_option_field" id="up_sub_option_' + curr_index_input +
                 '_' + next_index_option + '"> </div>');
             $("#up_sub_option_" + curr_index_input + "_" + next_index_option).append(
-                '<span class="up_del_new_option fa fa-square-xmark" data-checkform_name="' +
-                checkform_name + '" data-key="' + key +
-                '"></span> <input type="text" name="up_option_' + curr_index_input + '_' +
+                ' <input type="text" name="up_option_' + curr_index_input + '_' +
                 next_index_option + '_' + checkform_name +
                 '_sub_options" class="form-control form-control-input-option sub-option" id="up_option_' +
                 curr_index_input + '_' + next_index_option + '_' + checkform_name +
-                '_sub_options" placeholder="Option..">')
+                '_sub_options" placeholder="Option.."> <span class="up_del_new_option fa fa-square-xmark" data-checkform_name="' +
+                checkform_name + '" data-key="' + key +
+                '"></span>')
 
             // console.log("curr_index_input: " + curr_index_input);
             // console.log("curr_index_option: " + curr_index_option);

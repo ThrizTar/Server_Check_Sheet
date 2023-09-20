@@ -30,16 +30,6 @@
                           <div class="alert alert-danger print-error-msg-input" style="display:none">
                               <span class="error"></span>
                           </div>
-                          
-                          @if ($errors->any())
-                              <div class="alert alert-danger">
-                                  <ul>
-                                      @foreach ($errors->all() as $error)
-                                          <li>{{ $error }}</li>
-                                      @endforeach
-                                  </ul>
-                              </div>
-                          @endif
 
                           <div class="form-group mt-2 " id="input_{{ $count }}_{{ $delspace_checkform_name }}">
                               <div class="inline-input-option"

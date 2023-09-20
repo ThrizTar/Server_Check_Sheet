@@ -1261,6 +1261,12 @@ input[type="radio"]{
   display: none;
 }
 
+.disabled-label {
+  color: #888 !important; /* Add !important to ensure precedence */
+  cursor: not-allowed !important; /* Add !important to ensure precedence */
+  /* Add any other styles to visually indicate disabled state */
+}
+
 .wrapper .option-1 .dot::before{
     background: #51a351;
   }
@@ -1329,7 +1335,8 @@ input[type="radio"]{
 }
 
 .inline-input-option [id^=input_value_],
-.inline-input-option [id^=up_input_value_]{
+.inline-input-option [id^=up_input_value_],
+.inline-input-option [id^=del_input_value_]{
   width: 450px;
 }
 
@@ -1386,5 +1393,7 @@ input[type="radio"]{
 .input-with-option .key-with-details{
   display: inline-flex;
 }
+
+.modal { overflow: auto !important; }
 
 

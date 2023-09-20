@@ -644,10 +644,11 @@
             join_option_ids = all_option_ids.join(",");
             join_allup_option_ids = allup_option_ids.join(",");
             join_options = allup_options.join(",");
-            join_allup_input_options = allup_input_options.join(",");
+            njoin_allup_input_options = allup_input_options.join(",");
 
             var p_allup_option_ids = join_allup_option_ids.replace(/\s+/g, '');
             var join_new_input_ids = njoin_new_input_ids.replace(/\s+/g, '');
+            var join_allup_input_options = njoin_allup_input_options.replace(/\s+/g, '');
 
             console.log("join_input_ids: " + join_input_ids);
             console.log("join_new_input_ids: " + join_new_input_ids);
@@ -764,6 +765,8 @@
                         if (res['status'] == 'success') {
                             $('.sub_option_field#up_sub_option_' + key_input + '_' + i +
                                 '_' + checkform_name).remove();
+                            $('.sub_option_field#del_sub_option_' + key_input + '_' + i +
+                                '_' + checkform_name).remove();
                             // console.log($('.sub_option_field:hover'));
                         }
                     }
@@ -796,6 +799,8 @@
 
                     success: function(res) {
                         if (res['status'] == 'success') {
+                            $('#modal_body_delete_' + key + ' .input-field#input_' +
+                                key_input).remove();
                             $('#modal_body_update_' + key + ' .input-field#input_' +
                                 key_input).remove();
                             // location.reload(true)
@@ -832,7 +837,7 @@
                     curr_id + '_' + checkform_name + '"></div>');
                 $("#up_option_" + curr_id + '_' + checkform_name).append(
                     '<div class="add_remove_option_button" id="up_button_' + curr_id +
-                    '"><a class="btn btn-primary up_add_option text-light my-1 ml-4" data-checkform_name = "' +
+                    '"><a class="btn btn-primary up_add_option text-light my-1" data-checkform_name = "' +
                     checkform_name + '" data-key="' +
                     key +
                     '"><span class="fa fa-plus"> Add Option</span></a></div> <div class="sub_option_field" id="up_sub_option_' +
@@ -840,23 +845,23 @@
                     '"> </div><div class="sub_option_field" id="up_sub_option_' +
                     curr_id + '_1_' + checkform_name + '"> </div>');
                 $("#up_sub_option_" + curr_id + '_0_' + checkform_name).append(
-                    '<span class="up_del_new_option fa fa-square-xmark" data-checkform_name="' +
-                    checkform_name + '" data-key="' + key +
-                    '"></span> <input type="text" name="up_option_' + curr_id + '_0_' +
+                    '<input type="text" name="up_option_' + curr_id + '_0_' +
                     checkform_name +
                     '_sub_options" class="form-control form-control-input-option sub-option" id="up_option_' +
                     curr_id + '_0_' +
                     checkform_name +
-                    '_sub_options" placeholder="Option..">')
-                $("#up_sub_option_" + curr_id + '_1_' + checkform_name).append(
-                    '<span class="up_del_new_option fa fa-square-xmark" data-checkform_name="' +
+                    '_sub_options" placeholder="Option.."> <span class="up_del_new_option fa fa-square-xmark" data-checkform_name="' +
                     checkform_name + '" data-key="' + key +
-                    '"></span> <input type="text" name="up_option_' + curr_id + '_1_' +
+                    '"></span> ')
+                $("#up_sub_option_" + curr_id + '_1_' + checkform_name).append(
+                    '<input type="text" name="up_option_' + curr_id + '_1_' +
                     checkform_name +
                     '_sub_options" class="form-control form-control-input-option sub-option" id="up_option_' +
                     curr_id + '_1_' +
                     checkform_name +
-                    '_sub_options" placeholder="Option..">')
+                    '_sub_options" placeholder="Option.."> <span class="up_del_new_option fa fa-square-xmark" data-checkform_name="' +
+                    checkform_name + '" data-key="' + key +
+                    '"></span> ')
             } else {
                 console.log("I'm in else!!");
                 if ($("#modal_body_update_" + key + " #up_option_" + curr_id + '_' + checkform_name +
@@ -892,6 +897,8 @@
                                 if (res['status'] == 'success') {
                                     $('#up_option_' + curr_id + '_' + checkform_name)
                                         .remove();
+                                    $('#del_option_' + curr_id + '_' + checkform_name)
+                                        .remove();
                                     $('#up_type-1-' + curr_id + '-' + checkform_name).prop(
                                         'checked', true)
                                 }
@@ -902,11 +909,16 @@
                     }
                 } else {
                     $('#up_option_' + curr_id + '_' + checkform_name).remove();
+                    $('#del_option_' + curr_id + '_' + checkform_name).remove();
                     $('#up_type-1-' + curr_id + '-' + checkform_name).prop('checked', true)
                 }
 
             }
         })
+
+        $(document).on('click', '.radio-label', function(e) {
+            e.preventDefault();
+        });
 
         // Add new option in update form
         $(document).on('click', '.up_add_option', function(e) {

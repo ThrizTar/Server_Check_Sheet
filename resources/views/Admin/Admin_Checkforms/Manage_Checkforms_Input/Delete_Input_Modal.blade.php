@@ -1,17 +1,17 @@
   <!-- Modal -->
   <div class="modal fade" id="deleteInputModal-{{ $delspace_checkform_name }}" tabindex="-1"
-      aria-labelledby="updateInputModalLabel" aria-hidden="true">
-      <form action="" method="post" id="UpdateInputCheckformForm-{{ $delspace_checkform_name }}">
+      aria-labelledby="deleteInputModalLabel" aria-hidden="true">
+      <form action="" method="post" id="deleteInputCheckformForm-{{ $delspace_checkform_name }}">
           @csrf
           <div class="modal-dialog modal-lg">
               <div class="modal-content">
                   <div class="modal-header">
-                      <h5 class="modal-title" id="updateInputModalLabel">Delete {{ $checkform->checkform_name }} Input
+                      <h5 class="modal-title" id="deleteInputModalLabel">Delete {{ $checkform->checkform_name }} Input
                       </h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="modal-contain-UpdateInput-{{ $checkform->checkform_name }}">
-                      <div class="modal-body" id="modal_body_update_{{ $key }}">
+                  <div class="modal-contain-deleteInput-{{ $checkform->checkform_name }}">
+                      <div class="modal-body" id="modal_body_delete_{{ $key }}">
                           <div class="alert alert-danger print-error-msg-up_input" style="display:none">
                               <span class="error"></span>
                           </div>
@@ -27,59 +27,51 @@
                                               data-key="{{ $key }}" data-key_input="{{ $key_input }}"
                                               data-checkform_name="{{ $checkform->checkform_name }}"></span>
                                           <input type="text" class="form-control input-text"
-                                              name="up_input_value_{{ $j }}_{{ $delspace_checkform_name }}"
-                                              id="up_input_value_{{ $j }}_{{ $delspace_checkform_name }}"
+                                              name="del_input_value_{{ $j }}_{{ $delspace_checkform_name }}"
+                                              id="del_input_value_{{ $j }}_{{ $delspace_checkform_name }}"
                                               placeholder="Input" value="{{ $fill_input->input_title }}">
-                                          {{-- <div class="wrapper">
+                                          <div class="wrapper">
                                               <input type="radio" name="Radio-{{ $j }}"
                                                   id="up_type-1-{{ $j }}-{{ $delspace_checkform_name }}"
                                                   data-id="up_type-1-{{ $j }}-{{ $delspace_checkform_name }}"
                                                   value="text" data-checkform_name="{{ $delspace_checkform_name }}"
-                                                  data-key="{{ $key }}" class="up_sub_chk"
-                                                  {{ $fill_input->input_type == 'text' ? 'checked' : '' }}>
+                                                  data-key="{{ $key }}"
+                                                  {{ $fill_input->input_type == 'text' ? 'checked' : '' }} disabled>
                                               <input type="radio" name="Radio-{{ $j }}"
                                                   id="up_type-0-{{ $j }}-{{ $delspace_checkform_name }}"
                                                   data-id="up_type-0-{{ $j }}-{{ $delspace_checkform_name }}"
                                                   value="select" data-checkform_name="{{ $delspace_checkform_name }}"
-                                                  data-key="{{ $key }}" class="up_sub_chk"
-                                                  {{ $fill_input->input_type == 'select' ? 'checked' : '' }}>
+                                                  data-key="{{ $key }}"
+                                                  {{ $fill_input->input_type == 'select' ? 'checked' : '' }} disabled>
 
                                               <label
                                                   for="up_type-1-{{ $j }}-{{ $delspace_checkform_name }}"
-                                                  class="option option-1 ">
+                                                  class="option option-1 radio-label disabled-label">
                                                   <div class="dot"></div>
                                                   <span>Text</span>
                                               </label>
                                               <label
                                                   for="up_type-0-{{ $j }}-{{ $delspace_checkform_name }}"
-                                                  class="option option-0 ">
+                                                  class="option option-0 radio-label disabled-label">
                                                   <div class="dot"></div>
                                                   <span>Select</span>
                                               </label>
 
-                                          </div> --}}
+                                          </div>
 
                                           <input type="hidden"
-                                              name="up_fill_list_id_{{ $j }}_{{ $delspace_checkform_name }}"
+                                              name="del_fill_list_id_{{ $j }}_{{ $delspace_checkform_name }}"
                                               class="input-text-id"
-                                              id="up_fill_list_id_{{ $j }}_{{ $delspace_checkform_name }}"
+                                              id="del_fill_list_id_{{ $j }}_{{ $delspace_checkform_name }}"
                                               value="{{ $fill_input->form_fill_input }}">
 
                                       </div>
 
                                       <div class="option_field"
-                                          id="up_option_field_{{ $j }}_{{ $delspace_checkform_name }}">
+                                          id="del_option_field_{{ $j }}_{{ $delspace_checkform_name }}">
                                           <div class="option_input"
-                                              id="up_option_{{ $j }}_{{ $delspace_checkform_name }}">
+                                              id="del_option_{{ $j }}_{{ $delspace_checkform_name }}">
                                               @if ($fill_input->input_type == 'select')
-                                                  {{-- <div class="add_remove_option_button"
-                                                      id="up_button_{{ $key_input }}">
-                                                      <a class="btn btn-primary up_add_option text-light my-1 ml-4"
-                                                          data-checkform_name="{{ $delspace_checkform_name }}"
-                                                          data-key="{{ $key }}">
-                                                          <span class="fa fa-plus"> <span>Add Option</span></span>
-                                                      </a>
-                                                  </div> --}}
                                                   @php
                                                       $i = 0;
                                                   @endphp
@@ -87,22 +79,22 @@
                                                       @if ($fill_input->form_fill_input == $fill_option->form_fill_input)
                                                           <div class="sub_option_field"
                                                               id="up_sub_option_{{ $j }}_{{ $i }}_{{ $delspace_checkform_name }}">
+                                                              <input type="text"
+                                                                  name="del_option_{{ $j }}_{{ $i }}_{{ $delspace_checkform_name }}_sub_options"
+                                                                  class="form-control form-control-input-option sub-option"
+                                                                  id="del_option_{{ $j }}_{{ $i }}_{{ $delspace_checkform_name }}_sub_options"
+                                                                  placeholder="Option.."
+                                                                  value="{{ $fill_option->option_detail }}">
                                                               <span class="up_del_option fa fa-square-xmark"
                                                                   data-fill_id="{{ $fill_option->input_option }}"
                                                                   data-key_input="{{ $j }}"
                                                                   data-i="{{ $i }}"
                                                                   data-key="{{ $key }}"
                                                                   data-checkform_name="{{ $delspace_checkform_name }}"></span>
-                                                              <input type="text"
-                                                                  name="up_option_{{ $j }}_{{ $i }}_{{ $delspace_checkform_name }}_sub_options"
-                                                                  class="form-control form-control-input-option sub-option"
-                                                                  id="up_option_{{ $j }}_{{ $i }}_{{ $delspace_checkform_name }}_sub_options"
-                                                                  placeholder="Option.."
-                                                                  value="{{ $fill_option->option_detail }}">
                                                               <input type="hidden"
-                                                                  name="up_option_id_{{ $i }}"
+                                                                  name="del_option_id_{{ $i }}"
                                                                   class="sub-option-id"
-                                                                  id="up_option_id_{{ $j }}_{{ $i }}_{{ $delspace_checkform_name }}"
+                                                                  id="del_option_id_{{ $j }}_{{ $i }}_{{ $delspace_checkform_name }}"
                                                                   value="{{ $fill_option->input_option }}">
                                                           </div>
                                                           @php

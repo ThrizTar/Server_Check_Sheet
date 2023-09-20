@@ -1,5 +1,5 @@
   <!-- Modal -->
-  <div class="modal fade" id="updateInputModal-{{ $delspace_checkform_name }}" tabindex="-1"
+  <div class="modal fade" id="deleteInputModal-{{ $delspace_checkform_name }}" tabindex="-1"
       aria-labelledby="updateInputModalLabel" aria-hidden="true">
       <form action="" method="post" id="UpdateInputCheckformForm-{{ $delspace_checkform_name }}">
           @csrf
@@ -126,7 +126,7 @@
                           @endforeach
                       </div>
                       <div class="modal-footer">
-                          <button type="button" class="btn btn-danger" data-bs-target="#deleteInputModal-{{ $delspace_checkform_name }}">Delete Input Title</button>
+                          <button type="button" class="btn btn-danger" ></button>
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                           <button type="button" class="btn btn-primary update_input_option"
                               data-key="{{ $key }}"

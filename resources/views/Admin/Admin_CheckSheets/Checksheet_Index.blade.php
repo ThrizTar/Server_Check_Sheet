@@ -30,7 +30,7 @@
         <div class="container">
             <div class="row mb50">
                 <div class="total-checksheets text-center my-3">
-                    <h3>Total Checksheet: <span>{{ $total }}</span> EiEi </h3>
+                    <h3>Total Checksheet: <span>{{ $total }}</span></h3>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-body my-1">

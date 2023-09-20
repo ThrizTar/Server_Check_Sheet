@@ -22,10 +22,10 @@
                               @if ($fill_input->checkform_organize == $checkform->checkform_organize)
                                   <div class="form-group mt-2 input-field" id="input_{{ $key_input }}">
                                       <div class="inline-input-option" id="input_css_{{ $key_input }}">
-                                          <span class="up_del_input fa fa-square-minus"
+                                          {{-- <span class="up_del_input fa fa-square-minus"
                                               data-form_fill_input="{{ $fill_input->form_fill_input }}"
                                               data-key="{{ $key }}" data-key_input="{{ $key_input }}"
-                                              data-checkform_name="{{ $checkform->checkform_name }}"></span>
+                                              data-checkform_name="{{ $checkform->checkform_name }}"></span> --}}
                                           <input type="text" class="form-control input-text"
                                               name="up_input_value_{{ $j }}_{{ $delspace_checkform_name }}"
                                               id="up_input_value_{{ $j }}_{{ $delspace_checkform_name }}"
@@ -87,12 +87,12 @@
                                                       @if ($fill_input->form_fill_input == $fill_option->form_fill_input)
                                                           <div class="sub_option_field"
                                                               id="up_sub_option_{{ $j }}_{{ $i }}_{{ $delspace_checkform_name }}">
-                                                              <span class="up_del_option fa fa-square-xmark"
+                                                              {{-- <span class="up_del_option fa fa-square-xmark"
                                                                   data-fill_id="{{ $fill_option->input_option }}"
                                                                   data-key_input="{{ $j }}"
                                                                   data-i="{{ $i }}"
                                                                   data-key="{{ $key }}"
-                                                                  data-checkform_name="{{ $delspace_checkform_name }}"></span>
+                                                                  data-checkform_name="{{ $delspace_checkform_name }}"></span> --}}
                                                               <input type="text"
                                                                   name="up_option_{{ $j }}_{{ $i }}_{{ $delspace_checkform_name }}_sub_options"
                                                                   class="form-control form-control-input-option sub-option"
@@ -126,7 +126,7 @@
                           @endforeach
                       </div>
                       <div class="modal-footer">
-                          <button type="button" class="btn btn-danger" data-bs-target="#deleteInputModal-{{ $delspace_checkform_name }}">Delete Input Title</button>
+                          <button type="button" class="btn btn-danger" data-bs-target="#deleteInputModal-{{ $delspace_checkform_name }}" data-bs-toggle="modal">Delete Input Title</button>
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                           <button type="button" class="btn btn-primary update_input_option"
                               data-key="{{ $key }}"

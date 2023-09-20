@@ -112,7 +112,7 @@
                                         </ul>
                                         @include('Admin.Admin_Checkforms.Manage_Checkforms_Input.Create_Input_Modal')
                                         @include('Admin.Admin_Checkforms.Manage_Checkforms_Input.Update_Input_Modal')
-                                        {{-- @include('Admin.Admin_Checkforms.Manage_Checkforms_Input.Delete_formcheck_Input_Modal') --}}
+                                        @include('Admin.Admin_Checkforms.Manage_Checkforms_Input.Delete_Input_Modal')
                                     </div>
                                 </div>
                             </div>
@@ -137,7 +137,8 @@
         @include('Admin.Admin_Checkforms.Manage_Checkforms.Create_Checkform_Modal')
         @include('Admin.Admin_Checkforms.Manage_Checkforms.Update_Checkform_Modal')
         @include('Admin.Admin_Checkforms.Manage_Checkforms.Delete_Checkform_Modal')
-
+        
+        
         @include('Admin.Admin_Checkforms.Manage_Checkforms_Input.Input_Js')
 
         {!! Toastr::message() !!}

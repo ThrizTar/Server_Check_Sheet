@@ -126,11 +126,11 @@
                           @endforeach
                       </div>
                       <div class="modal-footer">
-                          <button type="button" class="btn btn-danger" ></button>
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary update_input_option"
-                              data-key="{{ $key }}"
-                              data-checkform_name="{{ $checkform->checkform_name }}">Update Input</button>
+                          <button type="button" class="btn btn-primary"
+                              data-bs-target="#updateInputModal-{{ $delspace_checkform_name }}"
+                              data-bs-toggle="modal">Back To Update Input</button>
+
                       </div>
                   </div>
               </div>

@@ -188,10 +188,11 @@ class HomeController extends Controller
     {
         $checksheet = Checksheets::find($checksheet_name);
         $checkforms = Checkforms::where('checksheet_name', '=', $checksheet_name)->orderBy('created_at', 'desc')->paginate(8);
-        $fill_inputs = Fill_Lists::orderBy('created_at', 'desc')->get();
-        $fill_options = Fill_Options::orderBy('created_at', 'desc')->get();
+        $fill_inputs = Fill_Lists::orderBy('checkform_organize', 'desc')->orderBy('created_at', 'desc')->orderBy('input_type', 'desc')->get();
+        $fill_options = Fill_Options::orderBy('created_at', 'asc')->get();
         $total = Checkforms::where('checksheet_name', '=', $checksheet_name)->count();
 
+        // dd($fill_inputs);
         return view('Admin.Admin_Checkforms.Checkform_Index', compact('checkforms', 'checksheet_name', 'fill_inputs', 'fill_options', 'total', 'checksheet'));
     }
 

@@ -460,9 +460,9 @@
                     if (res['status'] == 'success') {
                         console.log(res['message']);
 
-                        $('#addInputModal-' + key).modal('hide');
+                        $('#addInputModal-' + checkform_name).modal('hide');
                         $('#addInputFormcheckForm')[0].reset();
-                        // location.reload(true);
+                        location.reload(true);
 
                         Command: toastr["success"](
                             "Your input title have been created successfully",
